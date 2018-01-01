@@ -1,0 +1,6 @@
+[package]
+name = "linked-list"
+version = "0.1.0"
+authors = ["Frederick Ollinger <follinge@gmail.com>"]
+
+[dependencies]
