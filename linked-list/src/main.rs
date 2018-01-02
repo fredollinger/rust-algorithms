@@ -1,8 +1,21 @@
-struct LinkedList {
-       data: i32, 
-       node: Box<LinkedList>
+pub struct LinkedList {
+       pub data: i32,
+       pub node: Option<Box<LinkedList>>
 }
 
 fn main() {
-    println!("Hello, world!");
+
+   let z: Box<LinkedList> = Box::new(LinkedList {
+        data: 0,
+        node: None
+    });
+
+/*
+    let head = LinkedList {
+        data: 1,
+        node: Some(Box(z))
+    };
+    */
+
+    // println!("Hello, world! {}", head.data);
 }
