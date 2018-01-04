@@ -3,17 +3,21 @@ pub struct LinkedList {
        pub node: Option<Box<LinkedList>>
 }
 
+impl LinkedList {
+    pub fn new() -> LinkedList {
+       let z: Box<LinkedList> = Box::new(LinkedList {
+            data: 0,
+            node: None
+        });
+
+        let head = LinkedList {
+            data: 1,
+            node: Some(z)
+        };
+        head
+    }
+} // END impl LinkedList
+
 fn main() {
-
-   let z: Box<LinkedList> = Box::new(LinkedList {
-        data: 0,
-        node: None
-    });
-
-    let head = LinkedList {
-        data: 1,
-        node: Some(z)
-    };
-
-    // println!("Hello, world! {}", head.data);
+    let ll = LinkedList::new();
 }
