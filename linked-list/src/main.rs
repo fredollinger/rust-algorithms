@@ -10,12 +10,10 @@ fn main() {
         node: None
     });
 
-/*
     let head = LinkedList {
         data: 1,
-        node: Some(Box(z))
+        node: Some(z)
     };
-    */
 
     // println!("Hello, world! {}", head.data);
 }
