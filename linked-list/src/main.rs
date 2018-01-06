@@ -18,6 +18,26 @@ impl LinkedList {
     }
 } // END impl LinkedList
 
+pub fn print_list(ll: &LinkedList) {
+    loop {
+        println!("{}", ll.data);
+         match ll.node {
+            Some(_) => println!("some"),
+            None => println!("tail")
+        }
+
+        /*
+        let n = &ll.node;
+        match &n {
+            Some(x) => println!("some"),
+            None => println!("tail")
+        }
+        */
+        break;
+    }
+}
+
 fn main() {
     let ll = LinkedList::new();
+    print_list(&ll);
 }
