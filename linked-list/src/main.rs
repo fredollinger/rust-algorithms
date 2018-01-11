@@ -3,6 +3,30 @@ pub struct Node {
        pub node: Option<Box<Node>>
 }
 
+pub struct LinkedList {
+    //head: Box<Node>,
+    //z: Box<Node>
+}
+
+impl LinkedList {
+    pub fn new() -> LinkedList {
+            let ll: LinkedList = LinkedList {
+                /*
+               let z = Node {
+                    data: 0,
+                    node: None
+                };
+
+                let head = Node {
+                    data: 0,
+                    node: Some(z)
+                };
+                */
+        };
+        ll
+    }
+}
+
 impl Node {
     pub fn new() -> Node {
        let z: Box<Node> = Box::new(Node {
