@@ -4,24 +4,23 @@ pub struct Node {
 }
 
 pub struct LinkedList {
-    //head: Box<Node>,
-    //z: Box<Node>
+    head: Box<Node>,
+    z: Box<Node>
 }
 
 impl LinkedList {
     pub fn new() -> LinkedList {
-            let ll: LinkedList = LinkedList {
-                /*
-               let z = Node {
-                    data: 0,
-                    node: None
-                };
+        let ll = LinkedList {
+            z: Box::new(Node {
+                data: 0,
+                node: None
+            }),
 
-                let head = Node {
-                    data: 0,
-                    node: Some(z)
-                };
-                */
+            head: Box::new(Node {
+                data: 0,
+                node: Some(z)
+                // node: None
+            })
         };
         ll
     }
@@ -37,6 +36,7 @@ impl Node {
         let head = Node {
             data: 0,
             node: Some(z)
+            //node: None
         };
         head
     }
@@ -66,5 +66,10 @@ pub fn print_list(ll: &Node) {
 
 fn main() {
     let ll = Node::new();
+    let z = Node {
+         data: 0,
+         node: None
+    };
+
     print_list(&ll);
 }
