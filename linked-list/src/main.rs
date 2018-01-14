@@ -3,25 +3,9 @@ pub struct Node {
        pub node: Option<Box<Node>>
 }
 
-impl Node {
-    pub fn new() -> Node {
-       let z: Box<Node> = Box::new(Node {
-            data: 0,
-            node: None
-       });
-
-        let head = Node {
-            data: 0,
-            node: Some(z)
-        };
-        head
-    }
-} // END impl Node
-
 struct LinkedList {
     junk: i32, // remove me
     head: Box<Node>
-    //z: Box<Node>
 }
 
 impl LinkedList {
@@ -43,7 +27,11 @@ impl LinkedList {
 
     pub fn print(ll: LinkedList) {
         println!("{}", ll.head.data);
+        //println!("{}", ll.head.node.data);
         // ll.head.node = Some(ll.z);
+    }
+
+    pub fn insert_after(&self) {
     }
 } // END impl LinkedList
 
