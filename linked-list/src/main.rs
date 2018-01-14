@@ -4,6 +4,7 @@ pub struct Node {
 }
 
 pub struct LinkedList {
+    junk: i32, // remove me
     head: Box<Node>,
     z: Box<Node>
 }
@@ -11,14 +12,16 @@ pub struct LinkedList {
 impl LinkedList {
     pub fn new() -> LinkedList {
         let ll = LinkedList {
+            junk: 0,
             z: Box::new(Node {
                 data: 0,
                 node: None
             }),
 
+            // https://stackoverflow.com/questions/32300132/why-cant-i-store-a-value-and-a-reference-to-that-value-in-the-same-struct
             head: Box::new(Node {
                 data: 0,
-                node: Some(z)
+                node: Some(Self.z)
                 // node: None
             })
         };
@@ -52,7 +55,7 @@ pub fn print_list(ll: &Node) {
         }
         */
 
-        let n = &ll.node;
+        let _n = &ll.node;
             // &std::option::Option<std::boxed::Box<Node>> is non-empty
         /*
         match n {
@@ -65,11 +68,13 @@ pub fn print_list(ll: &Node) {
 }
 
 fn main() {
-    let ll = Node::new();
+    let _ll = LinkedList::new();
+    /*
     let z = Node {
          data: 0,
          node: None
     };
 
     print_list(&ll);
+    */
 }

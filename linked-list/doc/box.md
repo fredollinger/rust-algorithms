@@ -3,8 +3,10 @@
 As part of my learning of rust and algorithms, I have decided to try to
 implement a linked list in rust.
 
+## What is a Linked List? ##
+
 A linked list is a data structure created from nodes. Each node is a struct
-which contains the data, in this example, int32, and a pointer to the next
+which contains the data, in this example, i32, and a pointer to the next
 node.
 
 One of the hardest part so far is wrapping my mind around the Box type.
@@ -34,9 +36,13 @@ Here's the same structure in Rust:
 
 ````
 pub struct Node {
-       pub data: i32,
-       pub node: Option<Box<Node>>
+    pub data: i32,
+    pub node: Option<Box<Node>>
 }
 
 ````
+
+## What are Challenges that the Box<T> Presents? ##
+
+I'm convinced that a linked list is possible in Rust, but there are a few challenges.
 
