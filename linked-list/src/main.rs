@@ -26,8 +26,13 @@ impl LinkedList {
     } // END LinkedList new()
 
     pub fn print(ll: LinkedList) {
-        println!("{}", ll.head.data);
-        //println!("{}", ll.head.node.data);
+        // println!("{}", ll.head.data);
+        if ll.head.node.is_some() {
+            println!("{}", ll.head.node.unwrap().data);
+        }
+        else {
+            println!("head points to nothing");
+        }
         // ll.head.node = Some(ll.z);
     }
 
