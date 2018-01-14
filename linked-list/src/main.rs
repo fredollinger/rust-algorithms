@@ -5,7 +5,7 @@ pub struct Node {
 
 struct LinkedList {
     junk: i32, // remove me
-    head: Box<Node>
+    pub head: Box<Node>
 }
 
 impl LinkedList {
@@ -25,8 +25,8 @@ impl LinkedList {
         ll
     } // END LinkedList new()
 
-    pub fn print(&mut self) {
-        println!("{}", self.head.data);
+    pub fn print(ll: &mut LinkedList) {
+        println!("{}", ll.head.data);
         /*
         if self.head.node.is_some() {
             println!("{}", self.head.node.unwrap().data);
@@ -38,12 +38,18 @@ impl LinkedList {
         // ll.head.node = Some(ll.z);
     }
 
-    pub fn insert_after(&self) {
+    pub fn insert_after(ll: &mut LinkedList, d: i32, n: Option<Box<Node>>)
+    {
+       let new_node: Box<Node> = Box::new(Node {
+            data: d,
+            node: None
+        });
     }
 } // END impl LinkedList
 
 fn main() {
     let mut _ll = LinkedList::new();
-    _ll.print();
-    // LinkedList::print(_ll);
+    //_ll.print();
+    //LinkedList::print(&mut _ll);
+    LinkedList::insert_after(&mut _ll, 13, _ll.head.node);
 }
