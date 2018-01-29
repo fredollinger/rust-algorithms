@@ -4,19 +4,18 @@ pub struct Node {
 }
 
 struct LinkedList {
-    junk: i32, // remove me
     pub head: Box<Node>
 }
 
 impl LinkedList {
     pub fn new() -> LinkedList {
+
         let z: Box<Node> = Box::new(Node {
             data: 0,
             node: None
         });
 
         let ll = LinkedList {
-            junk: 4,
             head: Box::new(Node {
                 data: 4,
                 node: Some(z)
@@ -26,10 +25,10 @@ impl LinkedList {
     } // END LinkedList new()
 
     pub fn print(ll: &mut LinkedList) {
-        println!("{}", ll.head.data);
+        // println!("{}", ll.head.data);
         /*
-        if self.head.node.is_some() {
-            println!("{}", self.head.node.unwrap().data);
+        if ll.head.node.is_some() {
+            println!("{}", ll.head.node.unwrap().data);
         }
         else {
             println!("head points to nothing");
@@ -38,18 +37,22 @@ impl LinkedList {
         // ll.head.node = Some(ll.z);
     }
 
-    pub fn insert_after(ll: &mut LinkedList, d: i32, n: Option<Box<Node>>)
+    // NOTE THIS IS TOTALLY BROKEN FOR NOW
+    // We need to actually find _n and insert after that
+    pub fn insert_after_head(ll: &mut LinkedList, d: i32, _n: Option<Box<Node>>)
     {
-       let new_node: Box<Node> = Box::new(Node {
+       let last = ll.head.node.take();
+       ll.head.node = Some(Box::new(Node {
             data: d,
-            node: None
-        });
+            node: last
+        }));
     }
 } // END impl LinkedList
 
 fn main() {
     let mut _ll = LinkedList::new();
     //_ll.print();
+    let n = _ll.head.node.take();
     //LinkedList::print(&mut _ll);
-    LinkedList::insert_after(&mut _ll, 13, _ll.head.node);
+    LinkedList::insert_after_head(&mut _ll, 13, n);
 }

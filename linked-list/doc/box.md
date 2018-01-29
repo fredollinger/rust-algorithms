@@ -34,15 +34,40 @@ It provides 3 rudimentary methods:
 
 Here's the same structure in Rust:
 
-````
+```
 pub struct Node {
     pub data: i32,
     pub node: Option<Box<Node>>
 }
+```
 
-````
+I created a public structure with public data. In this case, our data is going
+to be a 32 bit integer, but in the future, I could use a generic type.
 
-## What are Challenges that the Box<T> Presents? ##
+The node variable points to more nodes which is how we link our list together.
+The head will point to the next node and so on all the way till we get to z.
 
-I'm convinced that a linked list is possible in Rust, but there are a few challenges.
+And here's the LinkedList:
 
+```
+struct LinkedList {
+    pub head: Box<Node>
+}
+```
+
+```
+pub fn new() -> LinkedList {
+    let ll = LinkedList {
+        z: Box::new(Node {
+            data: 0,
+            node: None
+        }),
+
+        head: Box::new(Node {
+            data: 0,
+            //node: Some(Self.z)
+            //node: None
+        })
+    };
+    ll
+} // END LinkedList new()
