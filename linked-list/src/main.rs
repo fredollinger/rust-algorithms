@@ -25,7 +25,7 @@ impl LinkedList {
     } // END LinkedList new()
 
     pub fn print(ll: &mut LinkedList) {
-        // println!("{}", ll.head.data);
+        println!("{}", ll.head.data);
         /*
         if ll.head.node.is_some() {
             println!("{}", ll.head.node.unwrap().data);
@@ -34,7 +34,7 @@ impl LinkedList {
             println!("head points to nothing");
         }
         */
-        // ll.head.node = Some(ll.z);
+        ll.head.node = Some(ll.head.node.unwrap());
     }
 
     // NOTE THIS IS TOTALLY BROKEN FOR NOW
@@ -53,6 +53,8 @@ fn main() {
     let mut _ll = LinkedList::new();
     //_ll.print();
     let n = _ll.head.node.take();
-    //LinkedList::print(&mut _ll);
-    LinkedList::insert_after_head(&mut _ll, 13, n);
+    LinkedList::insert_after_head(&mut _ll, 1, n);
+    LinkedList::print(&mut _ll);
+    // LinkedList::insert_after_head(&mut _ll, 2, n);
+    // LinkedList::insert_after_head(&mut _ll, 3, n);
 }
