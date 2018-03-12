@@ -1,0 +1,43 @@
+#require "minitest/autorun"
+
+task :default => [:build]
+
+desc "test it"
+task :build do
+    sh "cargo clean"
+    sh "cargo build --verbose"
+    sh "cargo run"
+end
+
+#class TestMeme < Minitest::Test
+#    def test_cat_vanilla
+#        rcat1=`target/debug/rcat foo.txt foo2.txt`
+#        cat1=`cat foo.txt foo2.txt`
+#        assert_equal cat1, rcat1
+#    end
+#
+#    def test_cat_minus_n
+#        rcat1=`target/debug/rcat -n foo.txt foo2.txt`
+#        cat1=`cat -n foo.txt foo2.txt`
+#        assert_equal cat1, rcat1
+#    end
+#
+#    def test_cat_minus_n_out_of_order
+#        rcat1=`target/debug/rcat foo.txt foo2.txt -n`
+#        cat1=`cat foo.txt foo2.txt -n`
+#        assert_equal cat1, rcat1
+#    end
+#
+#end
+#
+#desc "run it"
+#task :run do
+#    puts "target/debug/rcat foo.txt -n"
+#end
+#
+#desc "Print rcat help message"
+#task :help do
+#    sh "./target/debug/rcat --help"
+#end
+#
+#
