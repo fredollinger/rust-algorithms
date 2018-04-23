@@ -15,6 +15,12 @@ struct Node {
 }
 
 impl List {
+    pub fn new() -> Self {
+        List { head: Link::Empty }
+    }
+}
+
+impl List {
     pub fn push(&mut self, elem: i32) {
         let new_node = Box::new(Node {
             elem: elem,
@@ -29,4 +35,5 @@ impl List {
 
 fn main() {
     println!("Hello, world!");
+    // TODO MAKE A NEW LINKED LIST AND PUSH TO IT
 }
